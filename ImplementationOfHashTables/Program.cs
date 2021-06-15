@@ -30,18 +30,10 @@ namespace ImplementationOfHashTables
             Console.WriteLine(hash.GetV("5").GetHashCode());
             Console.WriteLine(hash.GetV("0").GetHashCode());
             Console.WriteLine($"size is: {hash.GetSize()}");
+            hash.Remove("16");
+            Console.WriteLine($"size is: {hash.GetSize()}");
 
-            string output = hash.GetV("3");
-            int count = 0;
-            for(int i =0; i< hash.GetSize(); i++)
-            {
-                string temp = hash.GetV($"{i}");
-                if(output == temp)
-                {
-                    count++;
-                }
-            }
-            Console.WriteLine($"frequency of {output} is : {count}");
+
         }
     }
 }

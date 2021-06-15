@@ -78,7 +78,7 @@ namespace ImplementationOfHashTables
             int pos = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(pos);
             bool isFound = false;
-            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            KeyValue<K, V> foundItem = default;
             foreach (KeyValue<K, V> item in linkedlist)
             {
                 if (item.Key.Equals(key))
@@ -86,7 +86,7 @@ namespace ImplementationOfHashTables
                     isFound = true;
                     foundItem = item;
                 }
-                if (isFound == true)
+                if (isFound)
                 {
                     linkedlist.Remove(foundItem);
                 }

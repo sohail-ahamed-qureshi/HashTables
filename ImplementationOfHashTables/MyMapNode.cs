@@ -32,7 +32,7 @@ namespace ImplementationOfHashTables
         protected LinkedList<KeyValue<K, V>> GetLinkedList(int pos)
         {
             LinkedList<KeyValue<K, V>> linkedlist = items[pos];
-            if(linkedlist == null)
+            if (linkedlist == null)
             {
                 linkedlist = new LinkedList<KeyValue<K, V>>();
                 items[pos] = linkedlist;
@@ -48,7 +48,7 @@ namespace ImplementationOfHashTables
         {
             int pos = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(pos);
-            foreach (KeyValue<K,V> item in linkedlist)
+            foreach (KeyValue<K, V> item in linkedlist)
             {
                 if (item.Key.Equals(key))
                 {
@@ -78,23 +78,40 @@ namespace ImplementationOfHashTables
             int pos = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(pos);
             bool isFound = false;
-            KeyValue<K,V> foundItem = default(KeyValue<K,V>) ;
-            foreach(KeyValue<K, V> item in linkedlist)
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedlist)
             {
                 if (item.Key.Equals(key))
                 {
                     isFound = true;
                     foundItem = item;
                 }
-                if(isFound == true)
+                if (isFound == true)
                 {
                     linkedlist.Remove(foundItem);
                 }
             }
         }
+        /// <summary>
+        /// check whether the hashtable is empty, return bool type
+        /// </summary>
+        /// <returns></returns>
+        public bool isEmpty()
+        {
+            if (GetSize() <= 0)
+                return true;
+            else
+                return false;
+        }
+        /// <summary>
+        /// returns the size of hashtable.
+        /// </summary>
+        /// <returns></returns>
+        public int GetSize()
+        {
+            return size;
+        }
     }
-
-
 
     public struct KeyValue<k, v>
     {
